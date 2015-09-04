@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+  <link data-require="bootstrap@*" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+  <script data-require="jquery@*" data-semver="2.1.4" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script data-require="bootstrap@*" data-semver="3.3.5" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script data-require="angular.js@1.4.3" data-semver="1.4.3" src="https://code.angularjs.org/1.4.3/angular.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+
+<body ng-controller="mycontroller">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" type="text" ng-model="name" />
+  </div>
+
+  <h5>2-way bind isolated scope (updates & gets updated by parent)</h5>
+  <isolated-two-way-bound-scope-directive name="name"></isolated-two-way-bound-scope-directive>
+
+  <h5>1-way bind isolated scope (only gets updated by parent)</h5>
+  <isolated-one-way-bound-scope-directive name="{{name}}"></isolated-one-way-bound-scope-directive>
+
+  <h5>1-time bind isolated scope (never updates & never gets updated by parent)</h5>
+  <isolated-one-time-bound-scope-directive name="Jason"></isolated-one-time-bound-scope-directive>
+
+  <h5>inherited scope (updates & gets updated by parent)</h5>
+  <inherited-scope-directive></inherited-scope-directive>
+
+  <h5>parent prototype scope (only gets updated by parent if not modified)</h5>
+  <parent-prototype-scope-directive></parent-prototype-scope-directive>
+
+  <h5>watcher (same as 1-way bind isolated scope)</h5>
+  <watcher-directive name="name"></watcher-directive>
+</body>
+
+</html>
